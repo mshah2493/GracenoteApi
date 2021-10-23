@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "a8ebdd47-4391-409c-b53b-bfc0ad1f4739",
+		"name": "gracenote",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "upload movies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/meets/Downloads/data.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/gracenote/api/movies/upload-movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gracenote",
+						"api",
+						"movies",
+						"upload-movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get movies - graphql",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "query {\r\n    getAllMovieShows {\r\n         movie {\r\n            movie_title\r\n        }\r\n        theater {\r\n            theater_name\r\n            theaterChain {\r\n                chain_name\r\n            }\r\n        }\r\n        date\r\n        showtime\r\n        attributes\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/gracenote/api/movies/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gracenote",
+						"api",
+						"movies",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all movie records",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/gracenote/api/movie-records/allrecords",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gracenote",
+						"api",
+						"movie-records",
+						"allrecords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all movie records - graphql",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    getAllMovieRecords {\r\n        movie_title\r\n        theater_name\r\n        chain_name\r\n        date\r\n        showtime\r\n        attributes\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/gracenote/api/movie-records/records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gracenote",
+						"api",
+						"movie-records",
+						"records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload movie records",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/meets/Downloads/data.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/gracenote/api/movie-records/upload-records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gracenote",
+						"api",
+						"movie-records",
+						"upload-records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gracenote/api/movies/allmovies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gracenote",
+						"api",
+						"movies",
+						"allmovies"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

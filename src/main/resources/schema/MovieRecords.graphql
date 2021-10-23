@@ -1,0 +1,60 @@
+schema {
+  query: Query
+}
+
+type Query {
+    getAllMovieRecords: [MovieRecord]
+    getAllMovieShows: [MovieShow]
+    getAllShows: [MovieShows]
+}
+
+type MovieRecord {
+    id: Float!
+    chain_id: Float!
+   	chain_name: String!
+   	theater_id: Float!
+   	theater_name: String!
+   	movie_id: Float!
+   	movie_title: String!
+   	date: String!
+   	showtime:String!
+   	attributes: String
+}
+
+type MovieShow {
+	theater: Theater
+	movie: Movie
+	show_id:Float!
+	date: String!
+	showtime:String!
+	attributes: String
+}
+
+type Theater {
+	theater_id:Float!
+	theater_name:String!
+	theaterChain:TheaterChain!
+}
+
+type TheaterChain {
+	chain_id:Float!
+	chain_name:String!
+}
+
+type Movie {
+	movie_id:Float!
+	movie_title:String!
+}
+
+type MovieShows {
+	id: Float!
+    chain_id: Float!
+   	chain_name: String!
+   	theater_id: Float!
+   	theater_name: String!
+   	movie_id: Float!
+   	movie_title: String!
+   	date: String!
+   	showtime:String!
+   	attributes: String
+}

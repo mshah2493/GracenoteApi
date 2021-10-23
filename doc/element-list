@@ -1,0 +1,8 @@
+com.gracenote.api
+com.gracenote.api.controller
+com.gracenote.api.datafetchers
+com.gracenote.api.fileio
+com.gracenote.api.message
+com.gracenote.api.model
+com.gracenote.api.repository
+com.gracenote.api.service

@@ -1,0 +1,93 @@
+-- DROP SCHEMA public;
+
+CREATE SCHEMA public AUTHORIZATION postgres;
+
+-- DROP SEQUENCE public.hibernate_sequence;
+
+CREATE SEQUENCE public.hibernate_sequence
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START 1
+	CACHE 1
+	NO CYCLE;-- public.movie_records definition
+
+-- Drop table
+
+-- DROP TABLE public.movie_records;
+
+CREATE TABLE public.movie_records (
+	id int8 NOT NULL,
+	"attributes" varchar(64) NULL,
+	chain_id int8 NOT NULL,
+	chain_name varchar(32) NULL,
+	"date" varchar(255) NULL,
+	movie_id int8 NOT NULL,
+	movie_title varchar(32) NULL,
+	showtime varchar(255) NULL,
+	theater_id int8 NOT NULL,
+	theater_name varchar(32) NULL,
+	CONSTRAINT movie_records_pkey PRIMARY KEY (id)
+);
+
+
+-- public.movies definition
+
+-- Drop table
+
+-- DROP TABLE public.movies;
+
+CREATE TABLE public.movies (
+	movie_id int8 NOT NULL,
+	movie_title varchar(32) NULL,
+	CONSTRAINT movies_pkey PRIMARY KEY (movie_id)
+);
+
+
+-- public.theater_chain definition
+
+-- Drop table
+
+-- DROP TABLE public.theater_chain;
+
+CREATE TABLE public.theater_chain (
+	chain_id int8 NOT NULL,
+	chain_name varchar(32) NULL,
+	CONSTRAINT theater_chain_pkey PRIMARY KEY (chain_id)
+);
+
+
+-- public.theater definition
+
+-- Drop table
+
+-- DROP TABLE public.theater;
+
+CREATE TABLE public.theater (
+	theater_id int8 NOT NULL,
+	theater_name varchar(32) NULL,
+	chain_id int8 NULL,
+	CONSTRAINT theater_pkey PRIMARY KEY (theater_id),
+	CONSTRAINT fkl064p2orkt4dqw6446k6nqftq FOREIGN KEY (chain_id) REFERENCES public.theater_chain(chain_id)
+);
+
+
+-- public.movie_shows definition
+
+-- Drop table
+
+-- DROP TABLE public.movie_shows;
+
+CREATE TABLE public.movie_shows (
+	show_id int8 NOT NULL,
+	showtime varchar(255) NULL,
+	"attributes" varchar(64) NULL,
+	"date" varchar(255) NULL,
+	movie_id int8 NULL,
+	theater_id int8 NULL,
+	CONSTRAINT movie_shows_pkey PRIMARY KEY (show_id),
+	CONSTRAINT fkcnwd6pguperfcrwy7a4j0h6h FOREIGN KEY (movie_id) REFERENCES public.movies(movie_id),
+	CONSTRAINT fkmed7cbh6ao71ckddvluowgriu FOREIGN KEY (theater_id) REFERENCES public.theater(theater_id)
+);
+
+
